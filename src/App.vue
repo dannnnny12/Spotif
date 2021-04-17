@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <header>
-      <h1>My Music</h1>
+      <h1>Danny's Music Lists of IU</h1>
     </header>
 
     <main>
+     <div id="bg"></div>
       <section class="player">
         <h2 class="song-title">
-          {{ current.title }} - <span>{{ current.artist }}</span>
+          >>{{ current.title }} - <span>{{ current.artist }}</span>
         </h2>
         <div class="controls">
           <button class="prev" @click="prev">Prev</button>
@@ -17,7 +18,7 @@
         </div>
       </section>
       <section class="playlist">
-        <h3>The Playlist</h3>
+        <h3>The Playlist of IU's Songs</h3>
         <button
           v-for="song in songs"
           :key="song.src"
@@ -27,12 +28,14 @@
           {{ song.title }} - {{ song.artist }}
         </button>
       </section>
+     
     </main>
   </div>
 </template>
 
 <script>
 export default {
+  
   name: "app",
   data() {
     return {
@@ -42,14 +45,39 @@ export default {
       songs: [
         //dictionary lists
         {
-          title: "Hold on",
-          artist: "Justin Bieber",
-          src: require("./assets/Justin Bieber - Hold On.mp3"),
+          title: "BBIBBI",
+          artist: "IU",
+          src: require("./assets/BBIBBI-IU.mp3"),
         },
         {
-          title: "BANKRUPT",
-          artist: "Russ",
-          src: require("./assets/Russ - BANKRUPT.mp3"),
+          title: "Coin",
+          artist: "IU",
+          src: require("./assets/Coin-IU.mp3"),
+        },
+        {
+          title: "Blueming",
+          artist: "IU",
+          src: require("./assets/Blueming-IU.mp3"),
+        },
+        {
+          title: "Eight",
+          artist: "IU",
+          src: require("./assets/eight-IU.mp3"),
+        },
+        {
+          title: "Palette",
+          artist: "IU",
+          src: require("./assets/Palette-IU.mp3"),
+        },
+        {
+          title: "Celebrity",
+          artist: "IU",
+          src: require("./assets/Celebrity-IU.mp3"),
+        },
+        {
+          title: "LILAC",
+          artist: "IU",
+          src: require("./assets/LILAC-IU.mp3"),
         },
       ],
       player: new Audio(),
@@ -113,6 +141,7 @@ export default {
 }
 body {
   font-family: sans-serif;
+  /*background-image: url(./assets/IU_bg.jpg);*/
 }
 header {
   display: flex;
@@ -127,9 +156,27 @@ main {
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  padding: 25px;
+  padding: 0px;
+  
+  z-index: 8;
 }
-.song-title{
+#bg{
+  position:absolute;
+  background-image: url(./assets/IU_bg.jpg);
+  width: 100%;
+  max-width: 768px;
+  height: 800px;
+  margin: 0 auto;
+  padding: 0px;
+  z-index: -5;
+  opacity: 0.5;
+}
+.app{
+  position:absolute;
+}
+
+.song-title {
+  padding: 30px 0px;
   color: #424040;
   font-size: 32px;
   font-weight: 700;
@@ -137,17 +184,19 @@ main {
   text-align: center;
   text-shadow: 1.5px 3px rgba(95, 95, 95, 0.568);
 }
-.song-title span{
+.song-title span {
   font-weight: 400;
+  
   font-style: italic;
 }
-.controls{
+.controls {
   display: flex;
+  height: 100px;
   justify-content: center;
-  padding: 30px 15px;
+  padding: 3px 5px;
   align-items: center;
 }
-button{
+button {
   appearance: none;
   background: none;
   border: none;
@@ -155,51 +204,81 @@ button{
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   opacity: 0.8;
 }
-.play, .pause{
+.play
+ {
   font-size: 20px;
   font-weight: 700;
-  padding: 15px 25px;
-  margin: 0px 15px;
+  padding: 35px 25px;
+  margin: 40px 5px;
   border-radius: 50%;
-  color:#FFF;
+  color: #fff;
+  background-color: #cc2e5d;
+}
+.pause {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 35px 25px;
+  margin: 40px 5px;
+  border-radius: 5px;
+  color: #fff;
   background-color: #cc2e5d;
 }
 
-.prev, .next{
+.prev,
+.next {
   font-size: 16px;
   font-weight: 700;
   padding: 10px 20px;
   margin: 0px 15px;
   border-radius: 6px;
-  color:#FFF;
+  color: #fff;
   background-color: #ff5858;
 }
-.playlist{
-  padding: 0px 30px;
+
+.next {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 20px;
+  margin: 0px 15px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #ff5858;
 }
-.playlist h3{
+
+.playlist {
+  padding: 0px 30px;  
+}
+.playlist h3 {
   color: #212121;
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 600;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-bottom: 30px;
   text-align: center;
-} 
-.playlist .song{
+  
+}
+.playlist .song {
   display: block;
   width: 100%;
   padding: 15px;
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+  border-radius: 12px;
 }
-.playlist .song:hover{
+.playlist .song:hover {
   color: #ff5858;
 }
-.playlist .song.playing{
-  color: #FFF;
+.playlist .song.playing {
+  color: #fff;
   background-image: linear-gradient(to right, #cc2e5d, #ff5858);
 }
 </style>
+<!--
+background-image: url(./assets/IU_bg.jpg);
+  opacity: 0.3;
+  z-index: 8;
+  -->
