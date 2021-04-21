@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+   
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -38,5 +39,18 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "<<<<<<< HEAD\r # spotif",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannnnny12/Spotif.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannnnny12/Spotif/issues"
+  },
+  "homepage": "https://github.com/dannnnny12/Spotif#readme"
 }
