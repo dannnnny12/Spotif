@@ -18,7 +18,7 @@
         </div>
       </section>
       <section class="playlist">
-        <h3>The Playlist of IU's Songs</h3>
+        <h5></h5>
         <button
           v-for="song in songs"
           :key="song.src"
@@ -79,7 +79,28 @@ export default {
           artist: "IU",
           src: require("./assets/LILAC-IU.mp3"),
         },
+        {
+          title: "Above the Time",
+          artist: "IU",
+          src: require("./assets/above_the_time-IU.mp3"),
+        },
+        {
+          title: "Into the I-Land",
+          artist: "IU",
+          src: require("./assets/Into_the_I-LAND-IU.mp3"),
+        },
+        {
+          title: "Lullaby",
+          artist: "IU",
+          src: require("./assets/Lullaby-IU.mp3"),
+        },
+        {
+          title: "YOU & I",
+          artist: "IU",
+          src: require("./assets/YOUI-IU.mp3"),
+        },
       ],
+      
       player: new Audio(),
     };
   },
@@ -144,6 +165,7 @@ body {
   /*background-image: url(./assets/IU_bg.jpg);*/
 }
 header {
+  opacity: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,28 +257,20 @@ button:hover {
   margin: 0px 15px;
   border-radius: 6px;
   color: #fff;
-  background-color: #ff5858;
+  background-color: #cc2e5d;
+  opacity: 0.7;
 }
 
-.next {
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 20px;
-  margin: 0px 15px;
-  border-radius: 6px;
-  color: #fff;
-  background-color: #ff5858;
-}
 
 .playlist {
   padding: 0px 30px;  
 }
-.playlist h3 {
+.playlist h5 {
   color: #212121;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 300;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
   
 }
@@ -277,8 +291,3 @@ button:hover {
   background-image: linear-gradient(to right, #cc2e5d, #ff5858);
 }
 </style>
-<!--
-background-image: url(./assets/IU_bg.jpg);
-  opacity: 0.3;
-  z-index: 8;
-  -->
